@@ -1,11 +1,15 @@
 pipeline {
   agent any
+  triggers {
+    pollSCM('') // Enabling being build on Push
+  }
   environment {
    
     dockerHubRepo='bajwadocker'
     dockerImageName = 'hello-world'
 	
 	}  
+	
    stages {
    stage('Build Image') {
       steps {
